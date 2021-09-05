@@ -1,3 +1,7 @@
+/*Introduction to Dynamic Memory Allocation (DMA). DMA functions malloc(), calloc(), free() etc. Write a C program for allocating memory for following using malloc(), calloc() and make it free using free()
+
+(a) int data type (b) float data type (c) int array (d) structure variable*/
+
 #include<stdio.h>
 #include<stdlib.h>
 

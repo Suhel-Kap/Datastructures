@@ -1,3 +1,7 @@
+/*Implement a program for stack that performs following operations using array.
+
+(a) PUSH (b) POP (c) PEEP (d) CHANGE(Replace top of stack value) (e) DISPLAY*/
+
 #include<stdio.h>
 #define max_size 100
 
