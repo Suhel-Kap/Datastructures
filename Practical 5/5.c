@@ -74,9 +74,107 @@ int maximum(struct node* head){
   return max;
 }
 
-struct node* merge(struct node* start1, struct node* start2){}
-void sort(struct node* head){}
-struct node* reverse(struct node* head){}
+struct node* merge(struct node* start1, struct node* start2){
+    if(length(start1)==0) return start2;
+    if(length(start2)==0) return start1;
+        
+    struct node *loop,*head,*connector;
+
+    connector = (struct node *)malloc(sizeof(struct node));
+    loop = (struct node *)malloc(sizeof(struct node));
+    loop = start1;
+    head = start1;
+    
+    while(loop!=NULL){
+        struct node* temp;
+        temp = (struct node*)malloc(sizeof(struct node));
+        temp = loop->next;
+        if(loop->next == NULL) connector = loop;
+        loop = loop->next;
+    }
+
+    connector->next = start2;
+    loop = start2;
+    while(loop != NULL){
+      struct node* temp;
+      temp = (struct node*)malloc(sizeof(struct node));
+      temp = loop->next;
+      loop = loop->next;
+    }
+
+    return head;
+}
+
+void sort(struct node* head){
+  int len = length(head),i,j,temp;
+  struct node *temp1,*temp2; // = (struct node*)malloc(sizeof(struct node));
+  temp1 = head;
+  for(i=0;i<len;i++){
+    temp2 = temp1->next;
+    for(j=i+1;j<len;j++){
+      if (temp1->data > temp2->data){
+        int t = temp1->data;
+        temp1->data = temp2->data;
+        temp2->data = t;
+      }
+      temp2 = temp2->next;
+    }
+    temp1 = temp1->next;
+  }
+}
+
+int isEmpty(int top){
+    if(top==-1){
+        return 1;
+    }else{
+        return 0;
+    }
+}
+
+void push(int *stack, int *top, int value){
+    (*top)++;
+    stack[*top] = value;
+}
+
+int pop(int *stack, int *top){
+    if(isEmpty(*top)){
+        printf("Stack is Empty!");
+        exit(0);
+    }
+    (*top)--;
+    return stack[(*top)+1];
+}
+
+struct node* reverse(struct node* start){
+  int *stack = (int*)calloc(length(start),sizeof(int)), top = 1, i = 0, j = 0;
+    struct node *head = (struct node *)malloc(sizeof(struct node)), *temp;
+    
+    if(length(start)==1){
+        head = start;
+        return head;
+    }
+
+    while(start!=NULL){
+        push(stack,&top,start->data);
+        start = start->next;
+    }
+
+    // head->data = pop(stack,&top);
+    temp = head;
+    while(1){
+        temp->data=pop(stack,&top);
+        if(top>1){
+            temp->next = (struct node *)malloc(sizeof(struct node));
+            temp = temp->next;
+        }
+        else{
+            temp->next = NULL;
+            break;
+        }
+    }
+    
+    return head;
+}
 
 struct node* insertAtHead(struct node* head, int data){
   struct node *temp = (struct node*)malloc(sizeof(struct node));
