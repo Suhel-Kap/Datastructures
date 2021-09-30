@@ -202,6 +202,10 @@ struct node *insertSort(struct node* head, int info){
     tbi->next = NULL;
     return tbi;
   }
+  if(info < head->data){
+    tbi->next = head;
+    return tbi;
+  }
   while(current->next != NULL && current->next->data < tbi->data)
     current = current->next;
   tbi->next = current->next;
