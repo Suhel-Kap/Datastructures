@@ -1,3 +1,4 @@
+// This is an innefficient program.
 #include <iostream>
 #include <iomanip>
 using namespace std;
