@@ -1,0 +1,86 @@
+//m.d.p stack as array
+#include<stdio.h>
+#define MAX 5
+int top=-1;
+int stack[MAX];
+
+void push()
+{
+    int data;
+    if(top==MAX-1)
+    {
+        printf("\nOVERFLOW\n");
+    }
+    else
+    {
+        printf("enter the value:");
+        scanf("%d",&data);
+        top++;
+        stack[top]=data;
+        printf("\nelement pushed successfully\n");
+    }
+}
+
+void pop()
+{
+    if(top==-1)
+    {
+        printf("\nUNDERFLOW\n");
+    }
+    else
+    {
+        printf("popped element: %d\n",stack[top]);
+        top--;
+        printf("\nelement popped successfully\n");
+    }
+
+}
+
+void display()
+{
+    if(top==-1)
+    {
+        printf("\nstack is empty\n");
+    }
+    else
+    {
+        printf("elements:\n");
+        for(int i=top;i>=0;i--)
+        {
+            printf("%d\n",stack[i]);
+        }
+    }
+}
+
+int main()
+{
+    int ch;
+    while(ch!=4)
+    {
+        printf("\npress 1 for push operation\n");
+        printf("press 2 for pop operation \n");
+        printf("press 3 for display \n");
+        printf("press 4 for exit \n");
+        printf("enter your choice:");
+        scanf("%d",&ch);
+        switch(ch)
+        {
+            case 1:
+            push();
+            break;
+            case 2:
+            pop();
+            break;
+            case 3:
+            display();
+            break;
+            case 4:
+            printf("\nEXIT \n");
+            break;
+            default:
+            printf("\nINVALID INPUT\n");
+            break;
+        }
+    }
+    return 0;
+}
