@@ -1,0 +1,85 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct stack
+{
+    int data;
+    struct stack *next;
+};
+struct stack *head;
+void push()
+{
+    int value;
+    struct stack *ptr=(struct stack*)malloc(sizeof(struct stack));
+    printf("enter the data:");
+    scanf("%d",&value);
+    if(head==NULL)
+    {
+        ptr->data=value;
+        ptr->next=NULL;
+        head=ptr;
+    }
+    else
+    {
+        ptr->data=value;
+        ptr->next=head;
+        head=ptr;
+    }
+    printf("\n value pushed \n");
+}
+void pop()
+{
+    int item;
+    struct stack *ptr;
+    if(head==NULL)
+    {
+        printf("\nstack is empty\n");
+    }
+    else
+    {
+        //item=head->data;
+        ptr=head;
+        head=head->next;
+        free(ptr);
+        printf("\n item popped \n");
+    }
+}
+void display()
+{
+    struct stack *temp=head;
+    printf("\nelements:\n");
+    while(temp!=NULL)
+    {
+        printf("%d\n",temp->data);
+        temp=temp->next;
+    }
+    printf("NULL\n");
+}
+int main()
+{
+    int choice;
+    while(choice!=4)
+    {
+        printf("\npress 1 for push \npress 2 for pop \npress 3 for display \npress 4 for exit");
+        printf("\nenter your choice:");
+        scanf("%d",&choice);
+        switch(choice)
+        {
+            case 1:
+            push();
+            break;
+            case 2:
+            pop();
+            break;
+            case 3:
+            display();
+            break;
+            case 4:
+            printf("\nEXIT\n");
+            break;
+            default:
+            printf("\nINVALID INPUT \n");
+            break;
+        }
+    }
+    return 0;
+}
