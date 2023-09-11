@@ -1,8 +1,7 @@
-void test(){
-    int a;
-    int b;
-    int c = a + b;
-    for(a = 0; a < b; a++){
-        b++;
-    }
+#include<stdio.h>
+#include<conio.h>
+
+int main(){
+    printf("hello world");
+    getch();
 }
