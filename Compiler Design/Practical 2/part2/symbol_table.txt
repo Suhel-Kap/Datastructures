@@ -1,0 +1,12 @@
+void¡ test
+int a
+int b
+int c
+int a
+int b
+for a
+for 0
+for a
+for b
+for a
+ U¡b

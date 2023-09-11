@@ -11,10 +11,10 @@ void copyCharacterByCharacter(FILE *source, FILE *destination) {
 
 // Function to read line by line from source and write to destination
 void copyLineByLine(FILE *source, FILE *destination) {
-    char line[1000];  // Assuming lines are not longer than 1000 characters
-    while (fgets(line, sizeof(line), source) != NULL) {
+    char line[1000] = "Hello world";  // Assuming lines are not longer than 1000 characters
+    // while (fgets(line, sizeof(line), source) != NULL) {
         fputs(line, destination);
-    }
+    // }
 }
 
 int main() {
@@ -23,7 +23,7 @@ int main() {
     char destFileName1[] = "output_character_by_character.txt";
     char destFileName2[] = "output_line_by_line.txt";
 
-    // Task 1: Read the contents of one text file and write to another text file
+    // Read the contents of one text file and write to another text file
     sourceFile = fopen(sourceFileName, "r");
     destFile1 = fopen(destFileName1, "w");
     if (sourceFile == NULL || destFile1 == NULL) {
@@ -34,7 +34,7 @@ int main() {
     fclose(sourceFile);
     fclose(destFile1);
 
-    // Task 2: Read data character by character and write to another text file
+    // Read data character by character and write to another text file
     sourceFile = fopen(sourceFileName, "r");
     destFile2 = fopen(destFileName2, "w");
     if (sourceFile == NULL || destFile2 == NULL) {
@@ -45,7 +45,7 @@ int main() {
     fclose(sourceFile);
     fclose(destFile2);
 
-    // Task 3: Display the contents of both text files
+    // Display the contents of both text files
     printf("Contents of %s:\n", sourceFileName);
     sourceFile = fopen(sourceFileName, "r");
     if (sourceFile == NULL) {
